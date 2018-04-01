@@ -1,0 +1,135 @@
+enum Estado {
+    ACTIVO, INACTIVO
+}
+
+enum Documento {
+    CI, RUC, PASAPORTE, OTRO
+}
+
+enum Sexo {
+	MASCULINO, FEMENINO, OTRO
+}
+
+enum Tipo {
+	MANUAL, MEDIDOR
+}
+
+entity Usuario {
+    estado Estado required,
+    documento Documento required,
+    numero String required,
+    nombres String required,
+    apellidos String required,
+    sexo Sexo required,
+    direccion String,
+    telefono String,
+    email String
+}
+
+entity Servicio {
+    nombre String required,
+    norma String,
+    tipo Tipo required 
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Clasificacion {
+	nombre String required,
+	estado Estado required
+}
+
+entity EscalasDelMedidor {
+    inicio Integer required,
+    fin Integer required,
+    fecha Instant required
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Costo {
+    cuota BigDecimal required,
+    fecha Instant required
+}
+
+/**
+ * The Employee entity.
+ */
+entity Sector {
+	/**
+	* The firstname attribute.
+	*/
+	nombre String required,
+	descripcion String,
+}
+
+entity CostoMedidor {
+	fecha Instant required,
+	estado Estado required
+}
+
+entity Medidor {
+    numero_medidor Integer required,
+	fecha_adquirio Instant required,
+	fecha_actual Instant required
+}
+
+entity LecturaMedidor {
+    lectura_inicial Integer required,
+	lectura_final Integer required,
+    estado Estado  required,
+	fecha Instant required,
+    anio Integer required,
+    mes Integer required,
+    descripcion String
+}
+
+entity Recibo {
+    numero Integer required,
+    estado Estado required,
+    pago_anterior BigDecimal required,
+    pago_actual BigDecimal required,
+    total BigDecimal required,
+	fecha_genera Instant required,
+    fecha_paga Instant required,
+    anio Integer required,
+    mes Integer required
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Usuario{usuarioRecibo} to Recibo{usuario},
+	Servicio{servicioCosto} to Costo{servicio},
+    Costo{costoCostoMedidor} to CostoMedidor{costo},
+    Sector{sectorCosto} to Costo{sector},
+    Clasificacion{clasificacionCosto} to Costo{clasificacion},
+    Medidor{medidorCostoMedidor} to CostoMedidor{medidor}
+    // LecturaMedidor{lecturamedidorRecibo} to Recibo{lecturaMedidor}
+}
+
+relationship OneToMany {
+	Usuario{usuarioMedidor} to Medidor{usuario},
+    Sector{sectorMedidor} to Medidor{sector},
+    Clasificacion{clasificacionEscalasDelMedidor} to EscalasDelMedidor{clasificacion},
+    Medidor{medidorLecturaMedidor} to LecturaMedidor{medidor}
+}
+
+relationship OneToMany {
+    Clasificacion{clasificacionMedidor} to Medidor{clasificacion}
+}
+
+relationship ManyToMany {
+	 LecturaMedidor{lecturamedidorRecibo} to Recibo{lecturaMedidor}
+}
+
+// Set pagination options
+paginate all with infinite-scroll
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+//angularSuffix * with mySuffix

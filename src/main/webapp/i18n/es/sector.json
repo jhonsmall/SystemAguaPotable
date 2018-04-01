@@ -1,0 +1,29 @@
+
+{
+    "systemAguaPotableApp": {
+        "sector" : {
+            "home": {
+                "title": "Sectors",
+                "createLabel": "Crear nuevo Sector",
+                "createOrEditLabel": "Crear o editar Sector",
+                "search": "Search for Sector"
+            },
+            "created": "Un nuevo Sector ha sido creado con el identificador {{ param }}",
+            "updated": "Un Sector ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Sector ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Sector {{ id }}?"
+            },
+            "detail": {
+                "title": "Sector"
+            },
+            "nombre": "Nombre",
+            "descripcion": "Descripcion",
+            "sectorCosto": "Sector Costo",
+            "sectorMedidor": "Sector Medidor",
+            "help": {
+                "nombre": "The firstname attribute."
+            }
+        }
+    }
+}

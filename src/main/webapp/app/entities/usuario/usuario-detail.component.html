@@ -1,0 +1,58 @@
+
+<div *ngIf="usuario">
+    <h2><span jhiTranslate="systemAguaPotableApp.usuario.detail.title">Usuario</span> {{usuario.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="systemAguaPotableApp.usuario.estado">Estado</span></dt>
+        <dd>
+            <span jhiTranslate="{{'systemAguaPotableApp.Estado.' + usuario.estado}}">{{usuario.estado}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.usuario.documento">Documento</span></dt>
+        <dd>
+            <span jhiTranslate="{{'systemAguaPotableApp.Documento.' + usuario.documento}}">{{usuario.documento}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.usuario.numero">Numero</span></dt>
+        <dd>
+            <span>{{usuario.numero}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.usuario.nombres">Nombres</span></dt>
+        <dd>
+            <span>{{usuario.nombres}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.usuario.apellidos">Apellidos</span></dt>
+        <dd>
+            <span>{{usuario.apellidos}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.usuario.sexo">Sexo</span></dt>
+        <dd>
+            <span jhiTranslate="{{'systemAguaPotableApp.Sexo.' + usuario.sexo}}">{{usuario.sexo}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.usuario.direccion">Direccion</span></dt>
+        <dd>
+            <span>{{usuario.direccion}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.usuario.telefono">Telefono</span></dt>
+        <dd>
+            <span>{{usuario.telefono}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.usuario.email">Email</span></dt>
+        <dd>
+            <span>{{usuario.email}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'usuario/'+ usuario.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

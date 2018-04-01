@@ -1,0 +1,9 @@
+{
+    "systemAguaPotableApp": {
+        "Tipo" : {
+            "null": "",
+            "MANUAL": "MANUAL",
+            "MEDIDOR": "MEDIDOR"
+        }
+    }
+}

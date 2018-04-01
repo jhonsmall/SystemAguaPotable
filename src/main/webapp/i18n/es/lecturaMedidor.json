@@ -1,0 +1,31 @@
+
+{
+    "systemAguaPotableApp": {
+        "lecturaMedidor" : {
+            "home": {
+                "title": "Lectura Medidors",
+                "createLabel": "Crear nuevo Lectura Medidor",
+                "createOrEditLabel": "Crear o editar Lectura Medidor",
+                "search": "Search for Lectura Medidor"
+            },
+            "created": "Un nuevo Lectura Medidor ha sido creado con el identificador {{ param }}",
+            "updated": "Un Lectura Medidor ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Lectura Medidor ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Lectura Medidor {{ id }}?"
+            },
+            "detail": {
+                "title": "Lectura Medidor"
+            },
+            "lecturainicial": "Lecturainicial",
+            "lecturafinal": "Lecturafinal",
+            "estado": "Estado",
+            "fecha": "Fecha",
+            "anio": "Anio",
+            "mes": "Mes",
+            "descripcion": "Descripcion",
+            "lecturamedidorRecibo": "Lecturamedidor Recibo",
+            "medidor": "Medidor"
+        }
+    }
+}

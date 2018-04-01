@@ -1,0 +1,9 @@
+{
+    "systemAguaPotableApp": {
+        "Estado" : {
+            "null": "",
+            "ACTIVO": "ACTIVO",
+            "INACTIVO": "INACTIVO"
+        }
+    }
+}

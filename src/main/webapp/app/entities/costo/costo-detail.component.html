@@ -1,0 +1,48 @@
+
+<div *ngIf="costo">
+    <h2><span jhiTranslate="systemAguaPotableApp.costo.detail.title">Costo</span> {{costo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="systemAguaPotableApp.costo.cuota">Cuota</span></dt>
+        <dd>
+            <span>{{costo.cuota}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.costo.fecha">Fecha</span></dt>
+        <dd>
+            <span>{{costo.fecha | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.costo.servicio">Servicio</span></dt>
+        <dd>
+            <div *ngIf="costo.servicioId">
+                <a [routerLink]="['/servicio', costo.servicioId]">{{costo.servicioId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.costo.sector">Sector</span></dt>
+        <dd>
+            <div *ngIf="costo.sectorId">
+                <a [routerLink]="['/sector', costo.sectorId]">{{costo.sectorId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.costo.clasificacion">Clasificacion</span></dt>
+        <dd>
+            <div *ngIf="costo.clasificacionId">
+                <a [routerLink]="['/clasificacion', costo.clasificacionId]">{{costo.clasificacionId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'costo/'+ costo.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

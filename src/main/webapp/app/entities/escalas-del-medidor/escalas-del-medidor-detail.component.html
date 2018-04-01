@@ -1,0 +1,40 @@
+
+<div *ngIf="escalasDelMedidor">
+    <h2><span jhiTranslate="systemAguaPotableApp.escalasDelMedidor.detail.title">Escalas Del Medidor</span> {{escalasDelMedidor.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="systemAguaPotableApp.escalasDelMedidor.inicio">Inicio</span></dt>
+        <dd>
+            <span>{{escalasDelMedidor.inicio}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.escalasDelMedidor.fin">Fin</span></dt>
+        <dd>
+            <span>{{escalasDelMedidor.fin}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.escalasDelMedidor.fecha">Fecha</span></dt>
+        <dd>
+            <span>{{escalasDelMedidor.fecha | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.escalasDelMedidor.clasificacion">Clasificacion</span></dt>
+        <dd>
+            <div *ngIf="escalasDelMedidor.clasificacionId">
+                <a [routerLink]="['/clasificacion', escalasDelMedidor.clasificacionId]">{{escalasDelMedidor.clasificacionId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'escalas-del-medidor/'+ escalasDelMedidor.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,89 @@
+<div>
+    <h2>
+        <span jhiTranslate="systemAguaPotableApp.lecturaMedidor.home.title">Lectura Medidors</span>
+        <button class="btn btn-primary float-right jh-create-entity create-lectura-medidor" [routerLink]="['/', { outlets: { popup: ['lectura-medidor-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="systemAguaPotableApp.lecturaMedidor.home.createLabel">
+            Create new Lectura Medidor
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'systemAguaPotableApp.lecturaMedidor.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="lecturaMedidors">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lecturainicial"><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.lecturainicial">Lecturainicial</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lecturafinal"><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.lecturafinal">Lecturafinal</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="estado"><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.estado">Estado</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fecha"><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.fecha">Fecha</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="anio"><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.anio">Anio</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="mes"><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.mes">Mes</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="descripcion"><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.descripcion">Descripcion</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="medidorId"><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.medidor">Medidor</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let lecturaMedidor of lecturaMedidors ;trackBy: trackId">
+                <td><a [routerLink]="['../lectura-medidor', lecturaMedidor.id ]">{{lecturaMedidor.id}}</a></td>
+                <td>{{lecturaMedidor.lecturainicial}}</td>
+                <td>{{lecturaMedidor.lecturafinal}}</td>
+                <td jhiTranslate="{{'systemAguaPotableApp.Estado.' + lecturaMedidor.estado}}">{{lecturaMedidor.estado}}</td>
+                <td>{{lecturaMedidor.fecha | date:'medium'}}</td>
+                <td>{{lecturaMedidor.anio}}</td>
+                <td>{{lecturaMedidor.mes}}</td>
+                <td>{{lecturaMedidor.descripcion}}</td>
+                <td>
+                    <div *ngIf="lecturaMedidor.medidorId">
+                        <a [routerLink]="['../medidor', lecturaMedidor.medidorId  ]" >{{lecturaMedidor.medidorId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../lectura-medidor', lecturaMedidor.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'lectura-medidor/'+ lecturaMedidor.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'lectura-medidor/'+ lecturaMedidor.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

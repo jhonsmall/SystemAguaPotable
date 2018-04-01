@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sectorCosto",
+            "otherEntityName": "costo",
+            "otherEntityRelationshipName": "sector"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sectorMedidor",
+            "otherEntityName": "medidor",
+            "otherEntityRelationshipName": "sector"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "javadoc": "The firstname attribute.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180401153543",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "sector",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

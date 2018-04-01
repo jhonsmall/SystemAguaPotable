@@ -1,0 +1,133 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myLecturaMedidorLabel" jhiTranslate="systemAguaPotableApp.lecturaMedidor.home.createOrEditLabel">Create or edit a Lectura Medidor</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!lecturaMedidor.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="lecturaMedidor.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.lecturaMedidor.lecturainicial" for="field_lecturainicial">Lecturainicial</label>
+            <input type="number" class="form-control" name="lecturainicial" id="field_lecturainicial"
+                [(ngModel)]="lecturaMedidor.lecturainicial" required/>
+            <div [hidden]="!(editForm.controls.lecturainicial?.dirty && editForm.controls.lecturainicial?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lecturainicial?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.lecturainicial?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.lecturaMedidor.lecturafinal" for="field_lecturafinal">Lecturafinal</label>
+            <input type="number" class="form-control" name="lecturafinal" id="field_lecturafinal"
+                [(ngModel)]="lecturaMedidor.lecturafinal" required/>
+            <div [hidden]="!(editForm.controls.lecturafinal?.dirty && editForm.controls.lecturafinal?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lecturafinal?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.lecturafinal?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.lecturaMedidor.estado" for="field_estado">Estado</label>
+            <select class="form-control" name="estado" [(ngModel)]="lecturaMedidor.estado" id="field_estado"  required>
+                <option value="ACTIVO">{{'systemAguaPotableApp.Estado.ACTIVO' | translate}}</option>
+                <option value="INACTIVO">{{'systemAguaPotableApp.Estado.INACTIVO' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.estado?.dirty && editForm.controls.estado?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.estado?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.lecturaMedidor.fecha" for="field_fecha">Fecha</label>
+            <div class="d-flex">
+                <input id="field_fecha" type="datetime-local" class="form-control" name="fecha" [(ngModel)]="lecturaMedidor.fecha"
+                required/>
+            </div>
+            <div [hidden]="!(editForm.controls.fecha?.dirty && editForm.controls.fecha?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.fecha?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.fecha?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.lecturaMedidor.anio" for="field_anio">Anio</label>
+            <input type="number" class="form-control" name="anio" id="field_anio"
+                [(ngModel)]="lecturaMedidor.anio" required/>
+            <div [hidden]="!(editForm.controls.anio?.dirty && editForm.controls.anio?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.anio?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.anio?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.lecturaMedidor.mes" for="field_mes">Mes</label>
+            <input type="number" class="form-control" name="mes" id="field_mes"
+                [(ngModel)]="lecturaMedidor.mes" required/>
+            <div [hidden]="!(editForm.controls.mes?.dirty && editForm.controls.mes?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.mes?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.mes?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.lecturaMedidor.descripcion" for="field_descripcion">Descripcion</label>
+            <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                [(ngModel)]="lecturaMedidor.descripcion" />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="systemAguaPotableApp.lecturaMedidor.lecturamedidorRecibo" for="field_lecturamedidorRecibo">Lecturamedidor Recibo</label>
+            <select class="form-control" id="field_lecturamedidorRecibo" multiple name="lecturamedidorRecibo" [(ngModel)]="lecturaMedidor.lecturamedidorRecibos">
+                <option [ngValue]="getSelected(lecturaMedidor.lecturamedidorRecibos, reciboOption)" *ngFor="let reciboOption of recibos; trackBy: trackReciboById">{{reciboOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.lecturaMedidor.medidor" for="field_medidor">Medidor</label>
+            <select class="form-control" id="field_medidor" name="medidor" [(ngModel)]="lecturaMedidor.medidorId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="medidorOption.id" *ngFor="let medidorOption of medidors; trackBy: trackMedidorById">{{medidorOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,52 @@
+
+<div *ngIf="medidor">
+    <h2><span jhiTranslate="systemAguaPotableApp.medidor.detail.title">Medidor</span> {{medidor.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="systemAguaPotableApp.medidor.numeromedidor">Numeromedidor</span></dt>
+        <dd>
+            <span>{{medidor.numeromedidor}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.medidor.fechaadquirio">Fechaadquirio</span></dt>
+        <dd>
+            <span>{{medidor.fechaadquirio | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.medidor.fechaactual">Fechaactual</span></dt>
+        <dd>
+            <span>{{medidor.fechaactual | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.medidor.usuario">Usuario</span></dt>
+        <dd>
+            <div *ngIf="medidor.usuarioId">
+                <a [routerLink]="['/usuario', medidor.usuarioId]">{{medidor.usuarioId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.medidor.sector">Sector</span></dt>
+        <dd>
+            <div *ngIf="medidor.sectorId">
+                <a [routerLink]="['/sector', medidor.sectorId]">{{medidor.sectorId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.medidor.clasificacion">Clasificacion</span></dt>
+        <dd>
+            <div *ngIf="medidor.clasificacionId">
+                <a [routerLink]="['/clasificacion', medidor.clasificacionId]">{{medidor.clasificacionId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'medidor/'+ medidor.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

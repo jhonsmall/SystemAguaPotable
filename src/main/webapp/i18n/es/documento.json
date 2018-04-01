@@ -1,0 +1,11 @@
+{
+    "systemAguaPotableApp": {
+        "Documento" : {
+            "null": "",
+            "CI": "CI",
+            "RUC": "RUC",
+            "PASAPORTE": "PASAPORTE",
+            "OTRO": "OTRO"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+
+{
+    "systemAguaPotableApp": {
+        "escalasDelMedidor" : {
+            "home": {
+                "title": "Escalas Del Medidors",
+                "createLabel": "Crear nuevo Escalas Del Medidor",
+                "createOrEditLabel": "Crear o editar Escalas Del Medidor",
+                "search": "Search for Escalas Del Medidor"
+            },
+            "created": "Un nuevo Escalas Del Medidor ha sido creado con el identificador {{ param }}",
+            "updated": "Un Escalas Del Medidor ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Escalas Del Medidor ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Escalas Del Medidor {{ id }}?"
+            },
+            "detail": {
+                "title": "Escalas Del Medidor"
+            },
+            "inicio": "Inicio",
+            "fin": "Fin",
+            "fecha": "Fecha",
+            "clasificacion": "Clasificacion"
+        }
+    }
+}

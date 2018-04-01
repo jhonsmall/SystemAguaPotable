@@ -1,0 +1,30 @@
+
+{
+    "systemAguaPotableApp": {
+        "medidor" : {
+            "home": {
+                "title": "Medidors",
+                "createLabel": "Create a new Medidor",
+                "createOrEditLabel": "Create or edit a Medidor",
+                "search": "Search for Medidor"
+            },
+            "created": "A new Medidor is created with identifier {{ param }}",
+            "updated": "A Medidor is updated with identifier {{ param }}",
+            "deleted": "A Medidor is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Medidor {{ id }}?"
+            },
+            "detail": {
+                "title": "Medidor"
+            },
+            "numeromedidor": "Numeromedidor",
+            "fechaadquirio": "Fechaadquirio",
+            "fechaactual": "Fechaactual",
+            "medidorCostoMedidor": "Medidor Costo Medidor",
+            "medidorLecturaMedidor": "Medidor Lectura Medidor",
+            "usuario": "Usuario",
+            "sector": "Sector",
+            "clasificacion": "Clasificacion"
+        }
+    }
+}

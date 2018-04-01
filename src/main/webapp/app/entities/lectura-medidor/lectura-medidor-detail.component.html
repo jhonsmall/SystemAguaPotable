@@ -1,0 +1,62 @@
+
+<div *ngIf="lecturaMedidor">
+    <h2><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.detail.title">Lectura Medidor</span> {{lecturaMedidor.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.lecturainicial">Lecturainicial</span></dt>
+        <dd>
+            <span>{{lecturaMedidor.lecturainicial}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.lecturafinal">Lecturafinal</span></dt>
+        <dd>
+            <span>{{lecturaMedidor.lecturafinal}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.estado">Estado</span></dt>
+        <dd>
+            <span jhiTranslate="{{'systemAguaPotableApp.Estado.' + lecturaMedidor.estado}}">{{lecturaMedidor.estado}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.fecha">Fecha</span></dt>
+        <dd>
+            <span>{{lecturaMedidor.fecha | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.anio">Anio</span></dt>
+        <dd>
+            <span>{{lecturaMedidor.anio}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.mes">Mes</span></dt>
+        <dd>
+            <span>{{lecturaMedidor.mes}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.descripcion">Descripcion</span></dt>
+        <dd>
+            <span>{{lecturaMedidor.descripcion}}</span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.lecturamedidorRecibo">Lecturamedidor Recibo</span></dt>
+        <dd>
+            <span *ngFor="let lecturamedidorRecibo of lecturaMedidor.lecturamedidorRecibos; let last = last">
+                <a [routerLink]="['/recibo', lecturamedidorRecibo?.id ]">{{lecturamedidorRecibo.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="systemAguaPotableApp.lecturaMedidor.medidor">Medidor</span></dt>
+        <dd>
+            <div *ngIf="lecturaMedidor.medidorId">
+                <a [routerLink]="['/medidor', lecturaMedidor.medidorId]">{{lecturaMedidor.medidorId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'lectura-medidor/'+ lecturaMedidor.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

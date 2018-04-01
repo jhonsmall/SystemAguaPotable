@@ -1,0 +1,115 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myUsuarioLabel" jhiTranslate="systemAguaPotableApp.usuario.home.createOrEditLabel">Create or edit a Usuario</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!usuario.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="usuario.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.usuario.estado" for="field_estado">Estado</label>
+            <select class="form-control" name="estado" [(ngModel)]="usuario.estado" id="field_estado"  required>
+                <option value="ACTIVO">{{'systemAguaPotableApp.Estado.ACTIVO' | translate}}</option>
+                <option value="INACTIVO">{{'systemAguaPotableApp.Estado.INACTIVO' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.estado?.dirty && editForm.controls.estado?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.estado?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.usuario.documento" for="field_documento">Documento</label>
+            <select class="form-control" name="documento" [(ngModel)]="usuario.documento" id="field_documento"  required>
+                <option value="CI">{{'systemAguaPotableApp.Documento.CI' | translate}}</option>
+                <option value="RUC">{{'systemAguaPotableApp.Documento.RUC' | translate}}</option>
+                <option value="PASAPORTE">{{'systemAguaPotableApp.Documento.PASAPORTE' | translate}}</option>
+                <option value="OTRO">{{'systemAguaPotableApp.Documento.OTRO' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.documento?.dirty && editForm.controls.documento?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.documento?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.usuario.numero" for="field_numero">Numero</label>
+            <input type="text" class="form-control" name="numero" id="field_numero"
+                [(ngModel)]="usuario.numero" required/>
+            <div [hidden]="!(editForm.controls.numero?.dirty && editForm.controls.numero?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numero?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.usuario.nombres" for="field_nombres">Nombres</label>
+            <input type="text" class="form-control" name="nombres" id="field_nombres"
+                [(ngModel)]="usuario.nombres" required/>
+            <div [hidden]="!(editForm.controls.nombres?.dirty && editForm.controls.nombres?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nombres?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.usuario.apellidos" for="field_apellidos">Apellidos</label>
+            <input type="text" class="form-control" name="apellidos" id="field_apellidos"
+                [(ngModel)]="usuario.apellidos" required/>
+            <div [hidden]="!(editForm.controls.apellidos?.dirty && editForm.controls.apellidos?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.apellidos?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.usuario.sexo" for="field_sexo">Sexo</label>
+            <select class="form-control" name="sexo" [(ngModel)]="usuario.sexo" id="field_sexo"  required>
+                <option value="MASCULINO">{{'systemAguaPotableApp.Sexo.MASCULINO' | translate}}</option>
+                <option value="FEMENINO">{{'systemAguaPotableApp.Sexo.FEMENINO' | translate}}</option>
+                <option value="OTRO">{{'systemAguaPotableApp.Sexo.OTRO' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.sexo?.dirty && editForm.controls.sexo?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.sexo?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.usuario.direccion" for="field_direccion">Direccion</label>
+            <input type="text" class="form-control" name="direccion" id="field_direccion"
+                [(ngModel)]="usuario.direccion" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.usuario.telefono" for="field_telefono">Telefono</label>
+            <input type="text" class="form-control" name="telefono" id="field_telefono"
+                [(ngModel)]="usuario.telefono" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.usuario.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="usuario.email" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
