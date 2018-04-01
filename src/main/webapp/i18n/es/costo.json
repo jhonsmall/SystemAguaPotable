@@ -1,0 +1,28 @@
+
+{
+    "systemAguaPotableApp": {
+        "costo" : {
+            "home": {
+                "title": "Costos",
+                "createLabel": "Crear nuevo Costo",
+                "createOrEditLabel": "Crear o editar Costo",
+                "search": "Search for Costo"
+            },
+            "created": "Un nuevo Costo ha sido creado con el identificador {{ param }}",
+            "updated": "Un Costo ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Costo ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Costo {{ id }}?"
+            },
+            "detail": {
+                "title": "Costo"
+            },
+            "cuota": "Cuota",
+            "fecha": "Fecha",
+            "costoCostoMedidor": "Costo Costo Medidor",
+            "servicio": "Servicio",
+            "sector": "Sector",
+            "clasificacion": "Clasificacion"
+        }
+    }
+}

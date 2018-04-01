@@ -5,6 +5,22 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153538_added_entity_Usuario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153539_added_entity_Servicio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153540_added_entity_Clasificacion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153541_added_entity_EscalasDelMedidor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153542_added_entity_Costo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153543_added_entity_Sector.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153544_added_entity_CostoMedidor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153545_added_entity_Medidor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153546_added_entity_LecturaMedidor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153547_added_entity_Recibo.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180401153541_added_entity_constraints_EscalasDelMedidor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153542_added_entity_constraints_Costo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153544_added_entity_constraints_CostoMedidor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153545_added_entity_constraints_Medidor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153546_added_entity_constraints_LecturaMedidor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180401153547_added_entity_constraints_Recibo.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

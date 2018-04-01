@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Costo.
+    -->
+    <changeSet id="20180401153542-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="servicio_id"
+                                 baseTableName="costo"
+                                 constraintName="fk_costo_servicio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="servicio"/>
+
+        <addForeignKeyConstraint baseColumnNames="sector_id"
+                                 baseTableName="costo"
+                                 constraintName="fk_costo_sector_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sector"/>
+
+        <addForeignKeyConstraint baseColumnNames="clasificacion_id"
+                                 baseTableName="costo"
+                                 constraintName="fk_costo_clasificacion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="clasificacion"/>
+
+    </changeSet>
+</databaseChangeLog>

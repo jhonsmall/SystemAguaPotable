@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "clasificacionCosto",
+            "otherEntityName": "costo",
+            "otherEntityRelationshipName": "clasificacion"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "clasificacionEscalasDelMedidor",
+            "otherEntityName": "escalasDelMedidor",
+            "otherEntityRelationshipName": "clasificacion"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "clasificacionMedidor",
+            "otherEntityName": "medidor",
+            "otherEntityRelationshipName": "clasificacion"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "Estado",
+            "fieldValues": "ACTIVO,INACTIVO",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180401153540",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "clasificacion",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity CostoMedidor.
+    -->
+    <changeSet id="20180401153544-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="costo_id"
+                                 baseTableName="costo_medidor"
+                                 constraintName="fk_costo_medidor_costo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="costo"/>
+
+        <addForeignKeyConstraint baseColumnNames="medidor_id"
+                                 baseTableName="costo_medidor"
+                                 constraintName="fk_costo_medidor_medidor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medidor"/>
+
+    </changeSet>
+</databaseChangeLog>

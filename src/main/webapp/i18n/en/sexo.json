@@ -1,0 +1,10 @@
+{
+    "systemAguaPotableApp": {
+        "Sexo" : {
+            "null": "",
+            "MASCULINO": "MASCULINO",
+            "FEMENINO": "FEMENINO",
+            "OTRO": "OTRO"
+        }
+    }
+}

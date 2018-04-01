@@ -1,0 +1,95 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMedidorLabel" jhiTranslate="systemAguaPotableApp.medidor.home.createOrEditLabel">Create or edit a Medidor</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!medidor.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="medidor.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.medidor.numeromedidor" for="field_numeromedidor">Numeromedidor</label>
+            <input type="number" class="form-control" name="numeromedidor" id="field_numeromedidor"
+                [(ngModel)]="medidor.numeromedidor" required/>
+            <div [hidden]="!(editForm.controls.numeromedidor?.dirty && editForm.controls.numeromedidor?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numeromedidor?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.numeromedidor?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.medidor.fechaadquirio" for="field_fechaadquirio">Fechaadquirio</label>
+            <div class="d-flex">
+                <input id="field_fechaadquirio" type="datetime-local" class="form-control" name="fechaadquirio" [(ngModel)]="medidor.fechaadquirio"
+                required/>
+            </div>
+            <div [hidden]="!(editForm.controls.fechaadquirio?.dirty && editForm.controls.fechaadquirio?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.fechaadquirio?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.fechaadquirio?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.medidor.fechaactual" for="field_fechaactual">Fechaactual</label>
+            <div class="d-flex">
+                <input id="field_fechaactual" type="datetime-local" class="form-control" name="fechaactual" [(ngModel)]="medidor.fechaactual"
+                required/>
+            </div>
+            <div [hidden]="!(editForm.controls.fechaactual?.dirty && editForm.controls.fechaactual?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.fechaactual?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.fechaactual?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.medidor.usuario" for="field_usuario">Usuario</label>
+            <select class="form-control" id="field_usuario" name="usuario" [(ngModel)]="medidor.usuarioId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="usuarioOption.id" *ngFor="let usuarioOption of usuarios; trackBy: trackUsuarioById">{{usuarioOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.medidor.sector" for="field_sector">Sector</label>
+            <select class="form-control" id="field_sector" name="sector" [(ngModel)]="medidor.sectorId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="sectorOption.id" *ngFor="let sectorOption of sectors; trackBy: trackSectorById">{{sectorOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="systemAguaPotableApp.medidor.clasificacion" for="field_clasificacion">Clasificacion</label>
+            <select class="form-control" id="field_clasificacion" name="clasificacion" [(ngModel)]="medidor.clasificacionId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="clasificacionOption.id" *ngFor="let clasificacionOption of clasificacions; trackBy: trackClasificacionById">{{clasificacionOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

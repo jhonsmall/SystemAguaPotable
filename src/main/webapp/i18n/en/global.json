@@ -7,6 +7,16 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
+                "usuario": "Usuario",
+                "servicio": "Servicio",
+                "clasificacion": "Clasificacion",
+                "escalasDelMedidor": "Escalas Del Medidor",
+                "costo": "Costo",
+                "sector": "Sector",
+                "costoMedidor": "Costo Medidor",
+                "medidor": "Medidor",
+                "lecturaMedidor": "Lectura Medidor",
+                "recibo": "Recibo",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

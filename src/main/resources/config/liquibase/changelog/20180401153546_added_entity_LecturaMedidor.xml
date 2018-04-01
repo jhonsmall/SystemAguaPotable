@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity LecturaMedidor.
+    -->
+    <changeSet id="20180401153546-1" author="jhipster">
+        <createTable tableName="lectura_medidor">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="lecturainicial" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="lecturafinal" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="estado" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="fecha" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="anio" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="mes" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="descripcion" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="medidor_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="lectura_medidor" columnName="fecha" columnDataType="datetime"/>
+        
+        <createTable tableName="lectura_medidor_lecturamedidor_recibo">
+            <column name="lecturamedidor_recibos_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lectura_medidors_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="lectura_medidors_id, lecturamedidor_recibos_id" tableName="lectura_medidor_lecturamedidor_recibo"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

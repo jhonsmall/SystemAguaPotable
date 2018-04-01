@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity LecturaMedidor.
+    -->
+    <changeSet id="20180401153546-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="lectura_medidors_id"
+                                 baseTableName="lectura_medidor_lecturamedidor_recibo"
+                                 constraintName="fk_lectura_medidor_lecturamedidor_recibo_lectura_medidors_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lectura_medidor"/>
+        <addForeignKeyConstraint baseColumnNames="lecturamedidor_recibos_id"
+                                 baseTableName="lectura_medidor_lecturamedidor_recibo"
+                                 constraintName="fk_lectura_medidor_lecturamedidor_recibo_lecturamedidor_recibos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recibo"/>
+        
+        <addForeignKeyConstraint baseColumnNames="medidor_id"
+                                 baseTableName="lectura_medidor"
+                                 constraintName="fk_lectura_medidor_medidor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medidor"/>
+
+    </changeSet>
+</databaseChangeLog>

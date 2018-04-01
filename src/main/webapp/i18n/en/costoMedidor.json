@@ -1,0 +1,26 @@
+
+{
+    "systemAguaPotableApp": {
+        "costoMedidor" : {
+            "home": {
+                "title": "Costo Medidors",
+                "createLabel": "Create a new Costo Medidor",
+                "createOrEditLabel": "Create or edit a Costo Medidor",
+                "search": "Search for Costo Medidor"
+            },
+            "created": "A new Costo Medidor is created with identifier {{ param }}",
+            "updated": "A Costo Medidor is updated with identifier {{ param }}",
+            "deleted": "A Costo Medidor is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Costo Medidor {{ id }}?"
+            },
+            "detail": {
+                "title": "Costo Medidor"
+            },
+            "fecha": "Fecha",
+            "estado": "Estado",
+            "costo": "Costo",
+            "medidor": "Medidor"
+        }
+    }
+}

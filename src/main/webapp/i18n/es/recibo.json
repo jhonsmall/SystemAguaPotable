@@ -1,0 +1,33 @@
+
+{
+    "systemAguaPotableApp": {
+        "recibo" : {
+            "home": {
+                "title": "Recibos",
+                "createLabel": "Crear nuevo Recibo",
+                "createOrEditLabel": "Crear o editar Recibo",
+                "search": "Search for Recibo"
+            },
+            "created": "Un nuevo Recibo ha sido creado con el identificador {{ param }}",
+            "updated": "Un Recibo ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Recibo ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Recibo {{ id }}?"
+            },
+            "detail": {
+                "title": "Recibo"
+            },
+            "numero": "Numero",
+            "estado": "Estado",
+            "pagoanterior": "Pagoanterior",
+            "pagoactual": "Pagoactual",
+            "total": "Total",
+            "fechagenera": "Fechagenera",
+            "fechapaga": "Fechapaga",
+            "anio": "Anio",
+            "mes": "Mes",
+            "usuario": "Usuario",
+            "lecturaMedidor": "Lectura Medidor"
+        }
+    }
+}
